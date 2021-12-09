@@ -1,0 +1,34 @@
+<header>
+    <div class="container">
+        <div class="header-content">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <div class="logo">
+                    <div class="logo-letter logo-letter-a">a</div>
+                    <div class="logo-letter logo-letter-n">N</div>
+                    <div class="logo-letter logo-letter-e logo-letter-ne">e</div>
+                    <div class="logo-letter logo-letter-r">r</div>
+                    <div class="logo-letter logo-letter-m">M</div>
+                    <div class="logo-letter logo-letter-e">e</div>
+                </div>
+            </a>
+            <div class="location">
+                Set Location
+            </div>
+            <div class="search-div">
+                <input type="text" class="search-input" id="search-input" name="search" placeholder="Search">
+                <button class="search-submit" id="search-submit" ><i class="fa fa-search"></i></button>
+            </div>
+            <ul>
+                @if(Model != null)
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="UserDashboard">My Account</a></li>
+                }
+                else
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
+                }
+                <li><i class="fa fa-shopping-cart"></i> Cart</li>
+            </ul>
+        </div>
+    </div>
+</header>

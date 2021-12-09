@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "aNerMe - My Account";
+}
+<partial name="_CustomerHeaderNavPartial" />
+<div class="filler"></div>
+<section class="user-dashboard-a">
+    <div class="container">
+        <h1>My Account</h1>
+        <p>Welcome back, Troy Jenkins! <a href="">Log out</a></p>
+        <div class="account-options">
+            <a href="">
+                <div class="option-box">
+                    <i class="fa fa-shopping-cart fa-6x" aria-hidden="false"></i>
+                    <h5>My Orders <i class="fas fa-chevron-right"></i></h5>
+                    <p>Check the status of your orders</p>
+                </div>
+            </a>
+            <a href="">
+                <div class="option-box">
+                    <i class="fa fa-heart fa-6x" aria-hidden="true"></i>
+                    <h5>My Wishlist <i class="fas fa-chevron-right"></i></h5>
+                    <p>View or update your wishlisted items.</p>
+                </div>
+            </a>
+            <a href="">
+                <div class="option-box">
+                    <i class="fa fa-cogs fa-6x" aria-hidden="true"></i>
+                    <h5>Settings <i class="fas fa-chevron-right"></i></h5>
+                    <p>View or update your personal information, passwords, address, etc.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<partial name="_AccountFooterNavPartial" />

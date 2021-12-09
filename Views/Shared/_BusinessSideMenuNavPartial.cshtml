@@ -1,0 +1,36 @@
+@model Administrator
+<ul>
+    <li><a asp-area="" asp-controller="Business" asp-action="BusinessDashboard"><i class="fa fa-desktop" aria-hidden="true"></i> Dashboard</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="Orders" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Orders</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="Comments" ><i class="fa fa-comments" aria-hidden="true"></i> Comments</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="Reviews"><i class="fa fa-comment-dots" aria-hidden="true"></i> Reviews</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="Users" ><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="MyProfile"><i class="fa fa-user" aria-hidden="true"></i> My Profile</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="Addresses"><i class="fa fa-envelope-open" aria-hidden="true"></i> Addresses</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="Products" ><i class="fa fa-object-ungroup" aria-hidden="true"></i> Products</a></li>
+    <li><a asp-area="" asp-controller="Business" asp-action="AccountWebsite" target="_blank"><i class="fa fa-object-group" aria-hidden="true"></i> Account Website</a></li>
+</ul>
+
+@if(Model.company.Banner != null)
+{
+    <ul>
+    @for(int i = 0; i < Model.company.Banner.MenuItems.Count(); i++)
+    {
+        if(Model.company.Banner.MenuItems[i].MenuActionID == 2)
+        {
+            <li class="menu-item">@Model.company.Banner.MenuItems[i].Title</li>
+        }
+        else
+        {
+            <li><a class="menu-item" href="/WebPageManager/@Model.company.Banner.MenuItems[i].MenuItemID"><i class="fa fa-object-group" aria-hidden="true"></i> @Model.company.Banner.MenuItems[i].Title</a></li>
+        }
+        @if(Model.company.Banner.MenuItems[i].MenuActionID == 2 && Model.company.Banner.MenuItems[i].DropDownItems != null)
+        {
+            for(int x = 0; x < Model.company.Banner.MenuItems[i].DropDownItems.Count(); x++)
+            {
+                <li><a class="dropdown-item" href="/WebPageManager/@Model.company.Banner.MenuItems[i].DropDownItems[x].MenuItemID"><i class="fa fa-object-group" aria-hidden="true"></i> @Model.company.Banner.MenuItems[i].DropDownItems[x].Title</a></li>
+            }
+        }
+    }
+    </ul>
+}

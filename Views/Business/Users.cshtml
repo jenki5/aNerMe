@@ -1,0 +1,75 @@
+@{
+    ViewData["Title"] = "aNerMe|Users";
+}
+@model Administrator
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+    <div class="users-main-body">
+        <div class="container">
+            <h1>Users</h1>
+            <div class="users-controller">
+                <h2>Add New User</h2>
+                <form class="add-user" asp-area="" asp-controller="Business" asp-action="SubmitNewAdministrator" method="post">
+                    <div class="inputs">
+                        <input type="text" asp-for="@Model.User.FirstName" value="" id="name" placeholder="Name" class="input" >
+                        <input type="email" asp-for="@Model.User.Email" value="" id="email" placeholder="Email" class="input" >
+                        <select asp-for="@Model.AdminLevelID" id="admin-level" class="input">
+                            <option selected value="1">Choose...</option>
+                            @for(int i = 0; i < Model.company.AdminLevels.Count(); i++)
+                            {
+                                <option value="@Model.company.AdminLevels[i].AdminLevelID">@Model.company.AdminLevels[i].AdminLevelName</option>
+                            }
+                        </select>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Add User">
+                </form>
+            </div>
+            <div class="users-table-div">
+                <table id="users-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Admin Level</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(int x = 0; x < Model.company.Administrators.Count(); x++)
+                        {
+                            <tr>
+                                <td>@Model.company.Administrators[x].User.FirstName @Model.company.Administrators[x].User.LastName</td>
+                                <td>@Model.company.Administrators[x].User.Email</td>
+                                <form asp-area="" asp-controller="Business" asp-action="SubmitEditAdministrator">
+                                    <td>                            
+                                        <select asp-for="@Model.AdminLevelID" id="admin-level" class="input">
+                                            @for(int i = 0; i < Model.company.AdminLevels.Count(); i++)
+                                            {
+                                                if(@Model.company.Administrators[x].AdminLevelID == Model.company.AdminLevels[i].AdminLevelID)
+                                                {
+                                                    <option selected value="@Model.company.AdminLevels[i].AdminLevelID">@Model.company.AdminLevels[i].AdminLevelName</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@Model.company.AdminLevels[i].AdminLevelID">@Model.company.AdminLevels[i].AdminLevelName</option>
+                                                }
+                                            }
+                                            <option value="999">Remove Admin</option>
+                                        </select>
+                                    </td>
+                                    <input type="hidden" asp-for="@Model.UserID" value="@Model.company.Administrators[x].UserID">
+                                    <td><input type="submit" class="btn btn-primary" value="Submit Change"></td>
+                                </form>
+                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

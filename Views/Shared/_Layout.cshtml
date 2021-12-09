@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    @{
+        string urlAddress = "https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"; 
+        <link rel="stylesheet" href=@urlAddress crossorigin="anonymous"/>
+    }
+    <link rel="stylesheet" href=/>
+    <link rel="stylesheet" href="~/css/site.css">
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    @RenderBody()
+    <footer id="main-footer">
+        <div class="footer-content container">
+            <div class="right-reserved">
+                <a href="http://luminoussoft.com/" target="_blank">
+                    <div class="logo-footer" id="logo-footer">
+                        <div class="logo-l logo-footer-letter">L</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-m logo-footer-letter">m</div>
+                        <div class="logo-i logo-footer-letter">i</div>
+                        <div class="logo-n logo-footer-letter">n</div>
+                        <div class="logo-o logo-footer-letter">o</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-s logo-footer-letter">s</div>
+                        <div class="logo-footer-letter logo-bolt"><i class="fas fa-bolt"></i></div>
+                        <div class="logo-S logo-footer-letter">S</div>
+                        <div class="logo-oo logo-footer-letter">o</div>
+                        <div class="logo-f logo-footer-letter">f</div>
+                        <div class="logo-t logo-footer-letter">t</div>
+                    </div>
+                </a>
+                <p>, Inc. &copy; 2021. All right Reserved</p>
+            </div>
+            <div class="social">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

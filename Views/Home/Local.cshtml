@@ -1,0 +1,185 @@
+@{
+    ViewData["Title"] = "aNerMe - Login";
+}
+@model Administrator
+
+<partial name="_CustomerHeaderNavPartial" />
+<div class="filler"></div>
+<section class="company-banner">
+    <partial name="@Model.company.Banner.BannerPartial.BannerPartialName" />
+</section>
+
+@if(Model.company.MenuItem.LTPActionID == 1)
+{
+    <section class="local-section">
+        <div class="container">
+            <h1>@Model.company.MenuItem.Title</h1>
+            <div class="products-grid">
+                @for(int i = 0; i < Model.company.Products.Count(); i++)
+                {
+                    <a href="/Product/@Model.company.Products[i].ProductID">
+                        <div class="product-box">
+                            <div class="image-box">
+                                <img src="@Model.company.Products[i].ProductImages[0].Image.ImagePath" alt="">
+                            </div>
+                            <h3>@Model.company.Products[i].ProductTitle</h3>
+                            <p>@Model.company.Products[i].HighLevelDesc</p>
+                            <p>$@Model.company.Products[i].StorePrice</p>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </section>
+}
+else if(Model.company.MenuItem.LTPActionID == 2)
+{
+    <section class="local-section">
+        <div class="container">
+            <h1>@Model.company.MenuItem.Title</h1>
+            <div class="info-paragraphs">
+                <p class="ininformation-page-para">@Model.company.MenuItem.Title</p>
+            </div>
+        </div>
+    </section>
+}
+else if(Model.company.MenuItem.LTPActionID == 3)
+{
+    <section class="local-section">
+        <div class="container">
+            <h1>@Model.company.MenuItem.ContactUsPage.StoreName</h1>
+            <div class="cards">
+                <div class="contact-us-card">
+                    <div class="image-box">
+                        <img src="@Model.company.MenuItem.ContactUsPage.Image.ImagePath" alt="">                        
+                    </div>
+                    <div class="address card-item">
+                        <h3>@Model.company.MenuItem.ContactUsPage.StoreName</h3>
+                        <p>@Model.company.MenuItem.ContactUsPage.Address.StreetAddress.StreetAddressName</p>
+                        <p>@Model.company.MenuItem.ContactUsPage.Address.City.CityName, @Model.company.MenuItem.ContactUsPage.Address.State.StateName @Model.company.MenuItem.ContactUsPage.Address.Zip</p>
+                        <h5>@Model.company.MenuItem.ContactUsPage.PhoneNumber</h5>
+                    </div>
+                    <div class="delivery-methods card-item">
+                        <h3>Shop this store:</h3>
+                        @for(int i = 0; i < Model.company.MenuItem.ContactUsPage.StoreDeliveryMethods.Count(); i++)
+                        {
+                            <p>@Model.company.MenuItem.ContactUsPage.StoreDeliveryMethods[i].DeliveryMethod.DeliveryMethodName</p>
+                        }
+                    </div>
+
+                </div>
+                <div class="contact-us-card">
+                    <h2>Store Hours</h2>
+                    <div class="day">
+                        Sunday
+                        @if(Model.company.MenuItem.ContactUsPage.SundayOpen == null || Model.company.MenuItem.ContactUsPage.SundayClose == null)
+                        {
+                            <span>Closed</span>
+                        }
+                        else
+                        {
+                            <div class="open-close">
+                                <span class="open">@Model.company.MenuItem.ContactUsPage.SundayOpenString</span>
+                                <span class="close">@Model.company.MenuItem.ContactUsPage.SundayCloseString</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="day">
+                        Monday
+                        @if(Model.company.MenuItem.ContactUsPage.MondayOpen == null || Model.company.MenuItem.ContactUsPage.MondayClose == null)
+                        {
+                            <span>Closed</span>
+                        }
+                        else
+                        {
+                            <div class="open-close">
+                                <span class="open">@Model.company.MenuItem.ContactUsPage.MondayOpenString</span>
+                                <span class="close">@Model.company.MenuItem.ContactUsPage.MondayCloseString</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="day">
+                        Tuesday
+                        @if(Model.company.MenuItem.ContactUsPage.TuesdayOpen == null || Model.company.MenuItem.ContactUsPage.TuesdayClose == null)
+                        {
+                            <span>Closed</span>
+                        }
+                        else
+                        {
+                            <div class="open-close">
+                                <span class="open">@Model.company.MenuItem.ContactUsPage.TuesdayOpenString</span>
+                                <span class="close">@Model.company.MenuItem.ContactUsPage.TuesdayCloseString</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="day">
+                        Wednesday
+                        @if(Model.company.MenuItem.ContactUsPage.WednesdayOpen == null || Model.company.MenuItem.ContactUsPage.WednesdayClose == null)
+                        {
+                            <span>Closed</span>
+                        }
+                        else
+                        {
+                            <div class="open-close">
+                                <span class="open">@Model.company.MenuItem.ContactUsPage.WednesdayOpenString</span>
+                                <span class="close">@Model.company.MenuItem.ContactUsPage.WednesdayCloseString</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="day">
+                        Thursday
+                        @if(Model.company.MenuItem.ContactUsPage.ThursdayOpen == null || Model.company.MenuItem.ContactUsPage.ThursdayClose == null)
+                        {
+                            <span>Closed</span>
+                        }
+                        else
+                        {
+                            <div class="open-close">
+                                <span class="open">@Model.company.MenuItem.ContactUsPage.ThursdayOpenString</span>
+                                <span class="close">@Model.company.MenuItem.ContactUsPage.ThursdayCloseString</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="day">
+                        Friday
+                        @if(Model.company.MenuItem.ContactUsPage.FridayOpen == null || Model.company.MenuItem.ContactUsPage.FridayClose == null)
+                        {
+                            <span>Closed</span>
+                        }
+                        else
+                        {
+                            <div class="open-close">
+                                <span class="open">@Model.company.MenuItem.ContactUsPage.FridayOpenString</span>
+                                <span class="close">@Model.company.MenuItem.ContactUsPage.FridayCloseString</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="day">
+                        Saturday
+                        @if(Model.company.MenuItem.ContactUsPage.SaturdayOpen == null || Model.company.MenuItem.ContactUsPage.SaturdayClose == null)
+                        {
+                            <span>Closed</span>
+                        }
+                        else
+                        {
+                            <div class="open-close">
+                                <span class="open">@Model.company.MenuItem.ContactUsPage.SaturdayOpenString</span>
+                                <span class="close">@Model.company.MenuItem.ContactUsPage.SaturdayCloseString</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="contact-us-card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17074.840072458937!2d-115.77983812923907!3d40.84039867410635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80a604b5190c8f0d%3A0xd855b1e9c405f689!2sElko%2C%20NV%2089801!5e0!3m2!1sen!2sus!4v1621010640749!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+<script>
+    var dbCompany = @Html.Raw(Json.Serialize(Model.company));
+</script>
+<script src="~/js/setTextColor.js" asp-append-version="true"></script>
+<script src="~/js/loadCompanyBanner.js" asp-append-version="true"></script>

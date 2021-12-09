@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../wwwroot/css/site.css">
+    <title>aNerMe - Home</title>
+</head>
+<body>
+    <!-- Header Content -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="">
+                    <div class="logo">
+                        <div class="logo-letter logo-letter-a">a</div>
+                        <div class="logo-letter logo-letter-n">N</div>
+                        <div class="logo-letter logo-letter-e logo-letter-ne">e</div>
+                        <div class="logo-letter logo-letter-r">r</div>
+                        <div class="logo-letter logo-letter-m">M</div>
+                        <div class="logo-letter logo-letter-e">e</div>
+                    </div>
+                </a>
+                <div class="location">
+                    Set Location
+                </div>
+                <div class="search-div">
+                    <input type="text" class="search-input" id="search-input" name="search" placeholder="Search">
+                    <button class="search-submit" id="search-submit" ><i class="fa fa-search"></i></button>
+                </div>
+                <ul>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
+                    <li><i class="fa fa-shopping-cart"></i> Cart</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="filler"></div>
+    <!-- Login Form -->
+    <section class="login-a">
+        <div class="container">
+            <div class="login-card">
+                <h1>Please Login</h1>
+                <form>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="form-control">
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <button class="btn">Login</button>
+                    <p class="text">Don't have an account?
+                        <a href="#">Register</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <div class="footer-content container">
+            <div class="right-reserved">
+                <a href="http://luminoussoft.com/" target="_blank">
+                    <div class="logo-footer" id="logo-footer">
+                        <div class="logo-l logo-footer-letter">L</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-m logo-footer-letter">m</div>
+                        <div class="logo-i logo-footer-letter">i</div>
+                        <div class="logo-n logo-footer-letter">n</div>
+                        <div class="logo-o logo-footer-letter">o</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-s logo-footer-letter">s</div>
+                        <div class="logo-footer-letter logo-bolt"><i class="fas fa-bolt"></i></div>
+                        <div class="logo-S logo-footer-letter">S</div>
+                        <div class="logo-oo logo-footer-letter">o</div>
+                        <div class="logo-f logo-footer-letter">f</div>
+                        <div class="logo-t logo-footer-letter">t</div>
+                    </div>
+                </a>
+                <p>, Inc. &copy; 2021. All right Reserved</p>
+            </div>
+            <div class="social">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="../../wwwroot/js/loginAnimation.js"></script>

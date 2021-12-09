@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "aNerMe - Business Registration";
+}
+
+@model Company
+
+<partial name="_CustomerHeaderNavPartial" />
+
+<section class="login-a">
+    <div class="container">
+        <div class="login-card">
+            <h1>Register New Business</h1>
+            <p id="error-message">@ViewBag.RegisterError</p>
+            <form asp-area="" asp-controller="Home" asp-action="RegisterBusiness" method="POST">
+                <div class="form-control">
+                    <input type="text" asp-for="@Model.Administrators[0].AdministratorName" required>
+                    <label>Admin Username</label>
+                </div>
+                <div class="form-control">
+                    <input type="text" asp-for="@Model.CompanyName" required>
+                    <label>Business Name</label>
+                </div>
+                <div class="form-control">
+                    <input type="password" asp-for="@Model.Administrators[0].Password" required>
+                    <label>Password</label>
+                </div>
+                <div class="form-control">
+                    <input type="password" asp-for="@Model.Administrators[0].ConfirmPassword" required>
+                    <label>Confirm Password</label>
+                </div>
+                <button class="btn">Create Business Account</button>
+                <p class="text">Already have an account?
+                    <a asp-area="" asp-controller="Home" asp-action="BusinessLogin">Business Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<script src="~/js/loginAnimation.js" asp-append-version="true"></script>

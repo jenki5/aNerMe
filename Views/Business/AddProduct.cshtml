@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "aNerMe|Add Product";
+}
+@model Administrator
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+        <div class="add-products-main-body">
+            <div class="container">
+                <h1>Add New Product</h1>
+                <div class="add-product-picture-div">
+                    <div class="pictures-box" id="add-product-picture-box">
+                        <div class="main-picture-div" id="open-modal">
+                            Click here to add pictures of the product
+                        </div>
+                        <div class="additional-pictures" id="additional-pictures-div"></div>
+                    </div>
+                    <div class="product-details-form">
+                        <form asp-area="" asp-controller="Business" asp-action="SubmitNewProduct" method="POST">
+                            <input type="text" asp-for="@Model.company.Products[0].ProductTitle" id="product-title" placeholder="Product Title" class="input input-full">
+                            <input type="text" asp-for="@Model.company.Products[0].HighLevelDesc" id="product-title" placeholder="High Level Description" class="input input-full">
+                            <textarea asp-for="@Model.company.Products[0].DetailedDesc" id="detailed-description" placeholder="Detailed Description" class="product-textarea input"></textarea>
+                            <div class="small-inputs">
+                                <input type="number" asp-for="@Model.company.Products[0].StorePrice" id="price" placeholder="Price" class="input input-half">
+                                <input type="number" asp-for="@Model.company.Products[0].Inventory" id="inventory" placeholder="Inventory Count" class="input input-half">
+                            </div>
+                            <div class="categories-div">
+                                <input type="text" class="input" id="add-category-input">
+                                <button class="btn btn-primary" id="add-category-btn" type="button">Add Category</button>
+                                <div class="typed-categories" id="typed-categories"></div>
+                            </div>
+                            <input type="hidden" id="image-id-string" asp-for="@Model.company.Products[0].ImageIDString" value="">
+                            <input type="hidden" id="categories-string" asp-for="@Model.company.Products[0].CategoriesString" value="">
+                            <input type="hidden" id="comapny-id-string" asp-for="@Model.company.Products[0].CompanyID" value="@Model.CompanyID">
+                            <div class="buttons-div">
+                                <input id="submit-product" class="btn btn-primary" type="submit" value="Submit New Product" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <partial name="_BusinessPictureModal" />
+</div>
+
+<script>
+    var companyImages = @Html.Raw(Json.Serialize(Model.company.Images));
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/js/imagePopupModal.js" asp-append-version="true"></script>
+<script src="~/js/categoriesManager.js" asp-append-version="true"></script>
+<script src="~/js/imageLoaderDropZone.js" asp-append-version="true"></script>
+<script>
+    const uploadImageBtn = document.getElementById('upload-image-btn');
+    uploadImageBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById("image-id-string").value = imageSelectArr;
+        const selectedImagesDiv = document.getElementById('additional-pictures-div');
+        selectedImagesDiv.innerHTML = "";
+
+        if(imageSelectArr.length > 0){            
+            for(var i = 0; i < imageSelectArr.length; i++){
+                for(var x = 0; x < companyImages.length; x++){
+                    if(imageSelectArr[i] == companyImages[x].imageID){
+                        const pictureDiv = document.createElement('div');
+                        pictureDiv.className = 'additional-picture';
+                        pictureDiv.innerHTML = `<img src="${companyImages[x].imagePath}" id="selected-image-${companyImages[x].imageID}" onclick="displayImage(this.id)" alt="">`;
+                        selectedImagesDiv.appendChild(pictureDiv);
+                        if(i == 0){
+                            document.getElementById(`selected-image-${companyImages[x].imageID}`).dispatchEvent(new Event('click'));
+                        }
+                        break;
+                    }
+                }
+            };
+        }
+        else{
+            document.getElementById('open-modal').innerHTML = "Click here to add pictures of the product";
+        }
+        overlay.dispatchEvent(new Event('click'));
+    });
+
+    function displayImage(id){
+        id = id.substring(id.lastIndexOf('-') + 1);
+        for(var x = 0; x < companyImages.length; x++){
+            if(id == companyImages[x].imageID){
+                const displayDiv = document.getElementById('open-modal');
+                displayDiv.innerHTML = `<img src="${companyImages[x].imagePath}" id="selected-image-${companyImages[x].imageID}" onclick="displayImage(this.id)" alt="">`;
+                break;
+            }
+        }
+    }
+</script>

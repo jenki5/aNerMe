@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "aNerMe|Addresses";
+}
+@model Administrator
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+
+        <div class="address-main-body">
+            <div class="container">
+                <h1>Manage Company Locations</h1>
+                <div class="address-form">
+                    <form class="address-grid" asp-area="" asp-controller="Business" asp-action="SubmitNewAddress" method="POST">
+                        <div class="inputs" >
+                            <input type="text" asp-for="@Model.company.CompanyAddresses[0].Address.StreetAddress.StreetAddressName" id="street" placeholder="Street" class="input" >
+                            <input type="text" asp-for="@Model.company.CompanyAddresses[0].Address.City.CityName" id="city" placeholder="City" class="input" >
+                            <input type="text" asp-for="@Model.company.CompanyAddresses[0].Address.State.StateName" id="state" placeholder="State" class="input" >
+                            <input type="number" asp-for="@Model.company.CompanyAddresses[0].Address.Zip" id="zip" placeholder="Zip" class="input" >
+                        </div>
+                        <input type="submit" id="submit-address" value="Submit" class="btn btn-primary">
+                    </form>
+                </div>
+                <div class="addresses">
+                    <table id="address-table">
+                        <thead>
+                            <tr>
+                                <th>Street Address</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Zip</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for(int i = 0; i < Model.company.CompanyAddresses.Count(); i++)
+                            {
+                                if(Model.company.CompanyAddresses[0].AddressID != 0)
+                                {
+                                    <tr>
+                                        <td>@Model.company.CompanyAddresses[i].Address.StreetAddress.StreetAddressName</td>
+                                        <td>@Model.company.CompanyAddresses[i].Address.City.CityName</td>
+                                        <td>@Model.company.CompanyAddresses[i].Address.State.StateName</td>
+                                        <td>@Model.company.CompanyAddresses[i].Address.Zip</td>
+                                        <td><a class="delete" href="/DeleteAddress/@Model.company.CompanyAddresses[i].AddressID"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <script src="~/js/companyAddress.js" asp-append-version="true"></script> *@

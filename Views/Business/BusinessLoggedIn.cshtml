@@ -1,0 +1,87 @@
+@{
+    ViewData["Title"] = "aNerMe - Business Dashboard";
+}
+@model Administrator
+
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+
+    <div class="business-main-body">
+        <section class="business-dashboard-a">
+            <div class="container">
+                <h1>@Model.company.CompanyName Business Account</h1>
+                <div class="account-options">
+                    <a asp-area="" asp-controller="Business" asp-action="BusinessDashboard" class="account-option">
+                        <i class="fa fa-desktop fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Dashboard</h3>
+                            <p>View your dashboard to see high level website activity</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="AccountWebsite" class="account-option">
+                        <i class="fa fa-object-group fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Account Website</h3>
+                            <p>Manage your web account on aNerMe</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="Orders" class="account-option">
+                        <i class="fa fa-shopping-basket fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Orders</h3>
+                            <p>View and fill your customer's orders</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="Comments" class="account-option">
+                        <i class="fa fa-comments fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Comments</h3>
+                            <p>View and reply to your customers comments on your business</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="Recommendations" class="account-option">
+                        <i class="fa fa-comment-dots fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Recommendations</h3>
+                            <p>Recommendations for your business</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="Users" class="account-option">
+                        <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Users</h3>
+                            <p>Manage users for your business account</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="MyProfile" class="account-option">
+                        <i class="fa fa-user fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>My Profile</h3>
+                            <p>Manage your profile under this business account</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="Addresses" class="account-option">
+                        <i class="fa fa-envelope-open fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Addresses</h3>
+                            <p>View and manage the addresses of your business locations</p>
+                        </div>
+                    </a>
+                    <a asp-area="" asp-controller="Business" asp-action="Products" class="account-option">
+                        <i class="fa fa-object-ungroup fa-4x" aria-hidden="true"></i>
+                        <div>
+                            <h3>Products</h3>
+                            <p>View and manage products and inventory on aNerMe</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<partial name="_BusinessAccountFooterNavPartial" />

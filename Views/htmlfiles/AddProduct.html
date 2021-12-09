@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../wwwroot/css/site.css">
+    <title>aNerMe - Home</title>
+</head>
+<body>
+    <!-- Header Content -->
+    <header class="business-header">
+        <a href="">
+            <div class="logo">
+                <div class="logo-letter logo-letter-a">a</div>
+                <div class="logo-letter logo-letter-n">N</div>
+                <div class="logo-letter logo-letter-e logo-letter-ne">e</div>
+                <div class="logo-letter logo-letter-r">r</div>
+                <div class="logo-letter logo-letter-m">M</div>
+                <div class="logo-letter logo-letter-e">e</div>
+            </div>
+        </a>        
+
+        <ul>
+            <li><a>Troy Jenkins</a></li>
+            <li><a>Logout</a></li>
+            <li><a><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+        </ul>
+    </header>
+
+    <div class="business-body">
+        <div class="business-side-menu">
+            <ul>
+                <li><a href=""><i class="fa fa-desktop" aria-hidden="true"></i> Dashboard</a></li>
+                <li><a href=""><i class="fa fa-object-group" aria-hidden="true"></i> Account Website</a></li>
+                <li><a href=""><i class="fa fa-shopping-basket" aria-hidden="true"></i> Orders</a></li>
+                <li><a href=""><i class="fa fa-comments" aria-hidden="true"></i> Comments</a></li>
+                <li><a href=""><i class="fa fa-comment-dots" aria-hidden="true"></i> Recommendations</a></li>
+                <li><a href=""><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+                <li><a href=""><i class="fa fa-user" aria-hidden="true"></i> My Profile</a></li>
+                <li><a href=""><i class="fa fa-envelope-open" aria-hidden="true"></i> Addresses</a></li>
+                <li><a href=""><i class="fa fa-object-ungroup" aria-hidden="true"></i> Products</a></li>
+            </ul>
+
+        </div>
+    
+        <div class="add-products-main-body">
+            <div class="container">
+                <h1>Add New Product</h1>
+                <div class="add-product-picture-div">
+                    <div class="pictures-box" id="add-product-picture-box">
+                        <div class="main-picture-div" id="open-modal">
+                            Click here to add pictures of the product
+                        </div>
+                        <div class="additional-pictures">
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                            <div class="additional-picture"></div>
+                        </div>
+                    </div>
+                    <div class="product-details-form">
+                        <form action="">
+                            <input type="text" name="title" id="product-title" placeholder="Product Title" class="input input-full">
+                            <input type="text" name="high-level-description" id="product-title" placeholder="High Level Description" class="input input-full">
+                            <textarea name="detailed-description" id="detailed-description" placeholder="Detailed Description" class="product-textarea input"></textarea>
+                            <div class="small-inputs">
+                                <input type="number" name="price" id="price" placeholder="Price" class="input input-half">
+                                <input type="number" name="inventory" id="inventory" placeholder="Inventory Count" class="input input-half">
+                            </div>
+                            <div class="categories-div">
+                                <input type="text" class="input" id="add-category-input">
+                                <button class="btn btn-primary" id="add-category-btn">Add Category</button>
+                                <div class="typed-categories" id="typed-categories">
+                                    <div class="category">Camping <i class="fa fa-times" id="delete-category-1" onclick="deleteCategory(this.id)" aria-hidden="true"></i></div>
+                                    <div class="category">Food <i class="fa fa-times" id="delete-category-2" onclick="deleteCategory(this.id)" aria-hidden="true"></i></div>
+                                    <div class="category">Fire <i class="fa fa-times" id="delete-category-3" onclick="deleteCategory(this.id)" aria-hidden="true"></i></div>
+                                    <div class="category">Hunting <i class="fa fa-times" id="delete-category-4" onclick="deleteCategory(this.id)" aria-hidden="true"></i></div>
+                                </div>
+                            </div>
+                            <div class="buttons-div">
+                                <button id="submit-product" class="btn btn-primary">Submit New Product</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="image-popup-single-select">
+        <div class="image-popup-header">
+            <h2>Image Manager</h2>
+            <div class="buttons">
+                <button id="upload-images" class="selected">Upload Image</button>
+                <button id="my-images-btn">My Images</button>
+            </div>
+        </div>
+        <div class="image-popup-body">
+            <div id="drop-zone" class="drop-zone">
+                <span class="drop-zone-prompt">Drop image here or click to upload</span>
+                <input type="file" name="myFile" class="drop-zone-input" id="">
+            </div>
+            <div id="my-images-div" class="my-images-div">
+                <div class="instructions">
+                    <p>Select the image you would like then click</p>
+                    <button class="btn btn-primary">Upload Image</button>
+                </div>
+                <div class="my-images-gird">
+                    <div class="my-image-box"></div>
+                    <div class="my-image-box"></div>
+                    <div class="my-image-box selected"></div>
+                    <div class="my-image-box"></div>
+                    <div class="my-image-box"></div>
+                    <div class="my-image-box"></div>
+                    <div class="my-image-box"></div>
+                    <div class="my-image-box"></div>
+                    <div class="my-image-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="main-footer">
+        <div class="footer-content container">
+            <div class="right-reserved">
+                <a href="http://luminoussoft.com/" target="_blank">
+                    <div class="logo-footer" id="logo-footer">
+                        <div class="logo-l logo-footer-letter">L</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-m logo-footer-letter">m</div>
+                        <div class="logo-i logo-footer-letter">i</div>
+                        <div class="logo-n logo-footer-letter">n</div>
+                        <div class="logo-o logo-footer-letter">o</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-s logo-footer-letter">s</div>
+                        <div class="logo-footer-letter logo-bolt"><i class="fas fa-bolt"></i></div>
+                        <div class="logo-S logo-footer-letter">S</div>
+                        <div class="logo-oo logo-footer-letter">o</div>
+                        <div class="logo-f logo-footer-letter">f</div>
+                        <div class="logo-t logo-footer-letter">t</div>
+                    </div>
+                </a>
+                <p>, Inc. &copy; 2021. All right Reserved</p>
+            </div>
+            <div class="social">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="../../wwwroot/js/imagePopupModal.js"></script>
+<script src="../../wwwroot/js/categoriesManager.js"></script>
+<!-- <script src="~/js/imagePopupModal.js" asp-append-version="true"></script> -->

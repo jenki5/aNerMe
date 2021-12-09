@@ -1,0 +1,217 @@
+@{
+    ViewData["Title"] = "aNerMe|Account Website";
+}
+@model Administrator
+<partial name="_CustomerHeaderNavPartial" />
+<div class="filler"></div>
+
+<section class="company-banner" id="selected-company-banner">
+    @if(Model.company.Banner != null)
+    {
+        if(Model.company.Banner.BannerPartial != null)
+        {
+            if(Model.company.Banner.BannerPartial.BannerPartialName != null)
+            {
+                <partial name="@Model.company.Banner.BannerPartial.BannerPartialName" />
+            }
+            else
+            {
+                <partial name="_CompanyBanner1NavPartial" />
+            }
+        }
+        else
+        {
+            <partial name="_CompanyBanner1NavPartial" />
+        }
+    }
+    else
+    {
+        <partial name="_CompanyBanner1NavPartial" />
+    }
+</section>
+
+<section class="progress-bar-div">
+    <div class="container">
+        <div class="progress-container-div">
+            <div class="progress-starter" id="progress-starter"></div>
+            <div class="progress-circle progress-active">1</div>
+            <div class="progress-circle">2</div>
+            <div class="progress-circle">3</div>
+            <div class="progress-circle">4</div>
+            <div class="progress-circle">5</div>
+        </div>
+        <div class="">
+            <button class="btn btn-primary" id="prev" disabled>Prev</button>
+            <button class="btn btn-primary" id="next">Next</button>
+        </div>
+    </div>
+</section>
+
+<div id="banner-selector-page-div" class="account-website-builder-step">
+    <section class="company-banner-selector-info">
+        <div class="container account-website-instructions-header">
+            <h2>Banner Selector</h2>
+            <p>Select the banner you would like to represent your company! When you are finished click the next botton above to move to the next step.</p>
+            <p>If you change your mind you can always come back and change it.</p>
+        </div>
+    </section>    
+    <section class="select-banner">
+        @for(int i = 0; i < @Model.company.BannerPartials.Count(); i++)
+        {
+            <div class="banner-option">
+                <partial name="@Model.company.BannerPartials[i].BannerPartialName" />
+                <button class="btn btn-primary select-banner-btn">Banner @(i+1)</button>
+            </div>
+        }
+    </section>
+</div>
+
+<div id="logo-adder-page-div" class="account-website-builder-step">
+    <div class="container account-website-instructions-header">
+        <h2>Logo Adder</h2>
+        <p>If you don't have a logo you can just leave this out and we will display your company name.</p>
+        <button id="open-modal" class="btn btn-primary">Click here to upload your logo</button>
+    </div>
+    <partial name="_BusinessPictureModal" />
+</div>
+
+<div id="banner-color-selector-page-div" class="account-website-builder-step">
+    <div class="container account-website-instructions-header">
+        <h2>Banner Color</h2>
+        <p>Next you'll set the color of your banner. It is good to use a color that represents your company's branding!</p>
+        <p><b>Click the square below to select your color!</b></p>
+        <div class="color-picker"></div>
+    </div>
+</div>
+
+<div id="menu-builder-page-div" class="account-website-builder-step">
+    <div class="container account-website-instructions-header" id="menu-builder-header">
+        <h2>Menu Builder</h2>
+        <p>Next you will customize you menu options to be exactly the way you want it.</p>
+        <h3 class="warning">Warning</h3>
+        <p class="warning">If you ahve already built each individual page for your menu, changes beyond renaming menu items may result in needing to rebuild each page again.</p>
+        <p id="error-message"></p>
+    </div>
+    <div class="container menu-builder" id="menu-builder">
+        <div class="menu-builder-inputs" id="menu-builder-inputs"></div>
+        <div class="dropdown-filler-space dropdown" id="dropdown-filler-space"></div>
+        <button class="btn btn-primary add-menu-item-btn">Add Menu Item</button>
+    </div>
+</div>
+
+<div id="menu-content-page-div" class="account-website-builder-step">
+    <div class="container account-website-instructions-header" id="menu-builder-header">
+        <h2>Congratulations!</h2>
+        <p>You have successfully created your banner, click below and you can build out each page you have created from your dashboard.</p>
+        <h3 class="warning">Warning</h3>
+        <p class="warning">You are about to rebuild your banner. If you have made structural changes to the Menu Builder section and have already set up each page this action may result in needing to rebuild each page again.</p>
+        <button class="btn btn-primary" id="submit-banner">Submit Banner</button>
+    </div>
+</div>
+
+<partial name="_BusinessAccountFooterNavPartial" />
+<script>
+    localStorage.clear();
+    var companyImages = @Html.Raw(Json.Serialize(Model.company.Images));
+    var ltpActions = @Html.Raw(Json.Serialize(Model.company.LTPActions));
+    var menuActions = @Html.Raw(Json.Serialize(Model.company.MenuActions));
+    var dbBanner = @Html.Raw(Json.Serialize(Model.company.Banner));
+    console.log(dbBanner);
+    document.getElementById('modal-images-grid').addEventListener('click', () => {
+        if(imageSelectArr.length > 1){
+            imageSelect(`image-${imageSelectArr[0]}`);
+        }
+    });
+</script>
+@{
+    string urlAddress = "https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"; 
+    <script src=@urlAddress></script>
+}
+
+<script src="~/js/setTextColor.js" asp-append-version="true"></script>
+<script>
+    var banner = document.getElementById('company-banner');
+
+    const pickr = Pickr.create({
+    el: '.color-picker',
+    theme: 'classic', // or 'monolith', or 'nano'
+
+    swatches: [
+        'rgba(244, 67, 54, 1)',
+        'rgba(233, 30, 99, 0.95)',
+        'rgba(156, 39, 176, 0.9)',
+        'rgba(103, 58, 183, 0.85)',
+        'rgba(63, 81, 181, 0.8)',
+        'rgba(33, 150, 243, 0.75)',
+        'rgba(3, 169, 244, 0.7)',
+        'rgba(0, 188, 212, 0.7)',
+        'rgba(0, 150, 136, 0.75)',
+        'rgba(76, 175, 80, 0.8)',
+        'rgba(139, 195, 74, 0.85)',
+        'rgba(205, 220, 57, 0.9)',
+        'rgba(255, 235, 59, 0.95)',
+        'rgba(255, 193, 7, 1)'
+    ],
+
+    components: {
+
+        // Main components
+        preview: true,
+        opacity: true,
+        hue: true,
+
+        // Input / output Options
+        interaction: {
+            hex: true,
+            rgba: true,
+            hsla: true,
+            hsva: true,
+            cmyk: true,
+            input: true,
+            clear: true,
+            save: true
+        }
+    }
+});
+
+pickr.on('change', (...args) => {
+
+    let HEXA = args[0].toHEXA();
+    let color = `#${HEXA[0]}${HEXA[1]}${HEXA[2]}`;
+    let shade = lightOrDark(color);
+    banner.style.backgroundColor = color;
+    //change the text color of all elements that have a class of set-text-color
+    if(shade.trim() == 'dark'){
+        setTextColor(textItems, '#fff');
+    }
+    else{
+        setTextColor(textItems, '#000');
+    }
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/js/accountWebsiteFunctionality.js" asp-append-version="true"></script>
+<script src="~/js/businessProgressBar.js" asp-append-version="true"></script>
+<script src="~/js/imageLoaderDropZone.js" asp-append-version="true"></script>
+<script src="~/js/imagePopupModal.js" asp-append-version="true"></script>
+<script>
+    document.getElementById('upload-image-btn').addEventListener('click', () => {
+        if(imageSelectArr.length == 0){
+
+            document.querySelector('.image-box').innerHTML = document.querySelectorAll('.image-box')[1].innerHTML;
+        }
+        else{
+            for(var x = 0; x < companyImages.length; x++){
+                if(imageSelectArr[0] == companyImages[x].imageID){
+                    document.querySelector('.image-box').innerHTML = `<img src="${companyImages[x].imagePath}" class="selected-image" id="selected-image-${companyImages[x].imageID}" alt="">`;
+                    break;
+                }
+            }
+        }
+        overlay.dispatchEvent(new Event('click'));
+    })
+
+    document.querySelector('.select-banner-btn').dispatchEvent(new Event('click'));
+
+    loadStoredSettings();
+</script>

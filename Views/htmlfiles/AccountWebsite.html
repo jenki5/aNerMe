@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+    <link rel="stylesheet" href="../../wwwroot/css/site.css">
+    <title>aNerMe - Home</title>
+</head>
+<body>
+    <!-- Header Content -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="">
+                    <div class="logo">
+                        <div class="logo-letter logo-letter-a">a</div>
+                        <div class="logo-letter logo-letter-n">N</div>
+                        <div class="logo-letter logo-letter-e logo-letter-ne">e</div>
+                        <div class="logo-letter logo-letter-r">r</div>
+                        <div class="logo-letter logo-letter-m">M</div>
+                        <div class="logo-letter logo-letter-e">e</div>
+                    </div>
+                </a>
+                <div class="location">
+                    Set Location
+                </div>
+                <div class="search-div">
+                    <input type="text" class="search-input" id="search-input" name="search" placeholder="Search">
+                    <button class="search-submit" id="search-submit" ><i class="fa fa-search"></i></button>
+                </div>
+                <ul>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
+                    <li><i class="fa fa-shopping-cart"></i> Cart</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="filler"></div>
+
+    <section class="company-banner" id="selected-company-banner">
+        <div class="banner company-banner-1" id="company-banner">
+            <div class="image-box">
+                <img src="http://kwiksurvey.co.za/wp-content/uploads/2015/03/Your-logo-here.png" alt="Your Logo">
+            </div>
+            <ul id="company-ul" class="company-ul"></ul>
+            <div>
+                <div class="search">
+                    <button><i class="fa fa-search"></i></button>
+                    <input type="text" placeholder="Search Company Name">
+                </div>
+                <i class="fa fa-shopping-bag set-text-color" aria-hidden="true"></i>
+            </div>
+        </div>
+    </section>
+    
+    <section class="progress-bar-div">
+        <div class="container">
+            <div class="progress-container-div">
+                <div class="progress-starter" id="progress-starter"></div>
+                <div class="progress-circle progress-active">1</div>
+                <div class="progress-circle">2</div>
+                <div class="progress-circle">3</div>
+                <div class="progress-circle">4</div>
+                <div class="progress-circle">5</div>
+            </div>
+            <div class="">
+                <button class="btn btn-primary" id="prev" disabled>Prev</button>
+                <button class="btn btn-primary" id="next">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="banner-selector-page-div" class="account-website-builder-step">
+        <section class="company-banner-selector-info">
+            <div class="container account-website-instructions-header">
+                <h2>Banner Selector</h2>
+                <p>Select the banner you would like to represent your company! When you are finished click the next botton above to move to the next step.</p>
+                <p>If you change your mind you can always come back and change it.</p>
+            </div>
+        </section>    
+        <section class="select-banner">
+            <div class="banner-option">
+                <div class="banner company-banner-1">
+                    <div class="image-box">
+                        <img src="http://kwiksurvey.co.za/wp-content/uploads/2015/03/Your-logo-here.png" alt="Your Logo">
+                    </div>
+                    <ul class="company-ul">
+                        <li><div class="menu-content-div"><a >Example 1</a></div></li>
+                        <li><div class="menu-content-div"><a >Example 2</a></div></li>
+                        <li><div class="menu-content-div"><a >Example 3</a></div></li>
+                        <li><div class="menu-content-div"><a >Example 4</a></div></li>
+                        <li><div class="menu-content-div"><a >Example 5</a></div></li>
+                    </ul>
+                    <div>
+                        <div class="search">
+                            <button><i class="fa fa-search"></i></button>
+                            <input type="text" placeholder="Search Company Name">
+                        </div>
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <button class="btn btn-primary select-banner-btn">Banner 1</button>
+            </div>
+            <div class="banner-option">
+                <div class="banner company-banner-2">
+                    <div class="company-banner-2-layer-1 container">
+                        <div class="image-box">
+                            <img src="http://kwiksurvey.co.za/wp-content/uploads/2015/03/Your-logo-here.png" alt="Your Logo">
+                        </div>
+                        <div class="search">
+                            <button><i class="fa fa-search"></i></button>
+                            <input type="text" placeholder="Search Company Name">
+                        </div>
+                        <div class="right-side">
+                            <a><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="company-banner-2-layer-2">
+                        <div class="container">
+                            <ul class="company-ul">
+                                <li><div class="menu-content-div"><a >Example 1</a></div></li>
+                                <li><div class="menu-content-div"><a >Example 2</a></div></li>
+                                <li><div class="menu-content-div"><a >Example 3</a></div></li>
+                                <li><div class="menu-content-div"><a >Example 4</a></div></li>
+                                <li><div class="menu-content-div"><a >Example 5</a></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary select-banner-btn">Banner 2</button>
+            </div>
+        </section>
+    </div>    
+
+    <div id="logo-adder-page-div" class="account-website-builder-step">
+        <div class="container account-website-instructions-header">
+            <h2>Logo Adder</h2>
+            <p>If you don't have a logo you can just leave this out and we will display your company name.</p>
+            <button id="open-modal" class="btn btn-primary">Click here to upload your logo</button>
+        </div>
+        <div class="overlay"></div>
+        <div class="image-popup-single-select">
+            <div class="image-popup-header">
+                <h2>Image Manager</h2>
+                <div class="buttons">
+                    <button id="upload-images" class="selected">Upload Image</button>
+                    <button id="my-images-btn">My Images</button>
+                </div>
+            </div>
+            <div class="image-popup-body">
+                <div id="drop-zone" class="drop-zone">
+                    <span class="drop-zone-prompt">Drop image here or click to upload</span>
+                    <input type="file" name="myFile" class="drop-zone-input" id="">
+                </div>
+                <div id="my-images-div" class="my-images-div">
+                    <div class="instructions">
+                        <p>Select the image you would like then click</p>
+                        <button class="btn btn-primary">Upload Image</button>
+                    </div>
+                    <div class="my-images-gird">
+                        <div class="my-image-box"></div>
+                        <div class="my-image-box"></div>
+                        <div class="my-image-box selected"></div>
+                        <div class="my-image-box"></div>
+                        <div class="my-image-box"></div>
+                        <div class="my-image-box"></div>
+                        <div class="my-image-box"></div>
+                        <div class="my-image-box"></div>
+                        <div class="my-image-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="banner-color-selector-page-div" class="account-website-builder-step">
+        <div class="container account-website-instructions-header">
+            <h2>Banner Color</h2>
+            <p>Next you'll set the color of your banner. It is good to use a color that represents your company's branding!</p>
+            <p><b>Click the square below to select your color!</b></p>
+            <div class="color-picker"></div>
+        </div>
+    </div>
+
+    <div id="menu-builder-page-div" class="account-website-builder-step">
+        <div class="container account-website-instructions-header" id="menu-builder-header">
+            <h2>Menu Builder</h2>
+            <p>Next you will customize you menu options to be exactly the way you want it.</p>
+            <p id="error-message"></p>
+        </div>
+        <div class="container menu-builder" id="menu-builder">
+            <div class="menu-builder-inputs" id="menu-builder-inputs"></div>
+            <div class="dropdown-filler-space dropdown" id="dropdown-filler-space"></div>
+            <button class="btn btn-primary add-menu-item-btn">Add Menu Item</button>
+        </div>
+    </div>
+
+    <div id="menu-content-page-div" class="account-website-builder-step">
+        <div class="container account-website-instructions-header" id="menu-builder-header">
+            <h2>Congratulations!</h2>
+            <p>You have successfully created your banner, click below and you can build out each page you have created from your dashboard.</p>
+            <button class="btn btn-primary">Submit Banner</button>
+        </div>
+    </div>
+
+
+    <footer id="main-footer">
+        <div class="footer-content container">
+            <div class="right-reserved">
+                <a href="http://luminoussoft.com/" target="_blank">
+                    <div class="logo-footer" id="logo-footer">
+                        <div class="logo-l logo-footer-letter">L</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-m logo-footer-letter">m</div>
+                        <div class="logo-i logo-footer-letter">i</div>
+                        <div class="logo-n logo-footer-letter">n</div>
+                        <div class="logo-o logo-footer-letter">o</div>
+                        <div class="logo-u logo-footer-letter">u</div>
+                        <div class="logo-s logo-footer-letter">s</div>
+                        <div class="logo-footer-letter logo-bolt"><i class="fas fa-bolt"></i></div>
+                        <div class="logo-S logo-footer-letter">S</div>
+                        <div class="logo-oo logo-footer-letter">o</div>
+                        <div class="logo-f logo-footer-letter">f</div>
+                        <div class="logo-t logo-footer-letter">t</div>
+                    </div>
+                </a>
+                <p>, Inc. &copy; 2021. All right Reserved</p>
+            </div>
+            <div class="social">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+<script>
+    var banner = document.getElementById('company-banner');
+    var textItems = document.querySelectorAll('.set-text-color');
+
+    const pickr = Pickr.create({
+    el: '.color-picker',
+    theme: 'classic', // or 'monolith', or 'nano'
+
+    swatches: [
+        'rgba(244, 67, 54, 1)',
+        'rgba(233, 30, 99, 0.95)',
+        'rgba(156, 39, 176, 0.9)',
+        'rgba(103, 58, 183, 0.85)',
+        'rgba(63, 81, 181, 0.8)',
+        'rgba(33, 150, 243, 0.75)',
+        'rgba(3, 169, 244, 0.7)',
+        'rgba(0, 188, 212, 0.7)',
+        'rgba(0, 150, 136, 0.75)',
+        'rgba(76, 175, 80, 0.8)',
+        'rgba(139, 195, 74, 0.85)',
+        'rgba(205, 220, 57, 0.9)',
+        'rgba(255, 235, 59, 0.95)',
+        'rgba(255, 193, 7, 1)'
+    ],
+
+    components: {
+
+        // Main components
+        preview: true,
+        opacity: true,
+        hue: true,
+
+        // Input / output Options
+        interaction: {
+            hex: true,
+            rgba: true,
+            hsla: true,
+            hsva: true,
+            cmyk: true,
+            input: true,
+            clear: true,
+            save: true
+        }
+    }
+});
+
+pickr.on('change', (...args) => {
+
+    let HEXA = args[0].toHEXA();
+    let color = `#${HEXA[0]}${HEXA[1]}${HEXA[2]}`;
+    let shade = lightOrDark(color);
+    banner.style.backgroundColor = color;
+    //change the text color of all elements that have a class of set-text-color
+    if(shade.trim() == 'dark'){
+        setTextColor(textItems, '#fff');
+    }
+    else{
+        setTextColor(textItems, '#000');
+    }
+});
+
+function setTextColor(textItems, color){
+    textItems.forEach(element => {
+        element.style.color = color;
+    });
+}
+
+function lightOrDark(color) {
+    // Variables for red, green, blue values
+    var r, g, b, hsp;
+
+    // Check the format of the color, HEX or RGB?
+    if (color.match(/^rgb/)) {
+
+        // If RGB --> store the red, green, blue values in separate variables
+        color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+        
+        r = color[1];
+        g = color[2];
+        b = color[3];
+    } 
+    else {
+        
+        // If hex --> Convert it to RGB: http://gist.github.com/983661
+        color = +("0x" + color.slice(1).replace( 
+        color.length < 5 && /./g, '$&$&'));
+
+        r = color >> 16;
+        g = color >> 8 & 255;
+        b = color & 255;
+    }
+
+    // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+    hsp = Math.sqrt(
+    0.299 * (r * r) +
+    0.587 * (g * g) +
+    0.114 * (b * b)
+    );
+
+    // Using the HSP value, determine whether the color is light or dark
+    if (hsp>127.5) {
+
+        return 'light';
+    } 
+    else {
+
+        return 'dark';
+    }
+}
+
+
+</script>
+
+<script src="../../wwwroot/js/accountWebsiteFunctionality.js"></script>
+<script src="../../wwwroot/js/businessProgressBar.js"></script>
+<script src="../../wwwroot/js/imageLoaderDropZone.js"></script>
+<script src="../../wwwroot/js/imagePopupModal.js"></script>
+<!-- <script src="~/js/businessProgressBar.js" asp-append-version="true"></scrip> -->
+<!-- <script src="~/js/imageLoaderDropZone.js" asp-append-version="true"></script> -->
+<!-- <script src="~/js/imagePopupModal.js" asp-append-version="true"></script> -->
+<!-- <script src="~/js/accountWebsiteFunctionality.js" asp-append-version="true"></script> -->

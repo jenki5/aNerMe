@@ -1,0 +1,117 @@
+@{
+    ViewData["Title"] = "aNerMe - Dashboard";
+}
+@model Administrator
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+
+    <div class="business-main-body">
+        <section class="business-section-a">
+            <h1 class="business-section-header">@Model.company.CompanyName Dashboard</h1>
+        </section>
+    
+        <section class="business-section business-section-b">
+            <div class="section-header">
+                <h1><i class="fa fa-comments" aria-hidden="true"></i> Customer Comments</h1>
+                <div class="bar"></div>
+            </div>
+            <div class="section-body">
+                <div class="comment-card">
+                    <div class="comment-card-header">
+                        <h2>Jim Jordan</h2>
+                        <p>10/10/2021</p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet error voluptas qui maiores, id eligendi molestias corrupti doloremque accusantium enim. Omnis.</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-card-header">
+                        <h2>Jim Jordan</h2>
+                        <p>10/10/2021</p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet error voluptas qui maiores, id eligendi molestias corrupti doloremque accusantium enim. Omnis.</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-card-header">
+                        <h2>Jim Jordan</h2>
+                        <p>10/10/2021</p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet error voluptas qui maiores, id eligendi molestias corrupti doloremque accusantium enim. Omnis.</p>
+                </div>
+                <div class="comment-card">
+                    <div class="comment-card-header">
+                        <h2>Jim Jordan</h2>
+                        <p>10/10/2021</p>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet error voluptas qui maiores, id eligendi molestias corrupti doloremque accusantium enim. Omnis.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="business-section business-section-c">
+            <div class="section-header">
+                <h1><i class="fa fa-chart-bar" aria-hidden="true"></i> Common Statistics</h1>
+                <div class="bar"></div>
+            </div>
+            <div class="section-body">
+                <a class="stats-card">
+                    <div class="card-content">
+                        <div class="card-data">
+                            <h2>5</h2>
+                            <p>New Orders</p>
+                        </div>
+                        <i class="fa fa-shopping-basket fa-6x" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-thumbnail">More Info <i class="fa fa-chevron-right" aria-hidden="true"></i></p>
+                </a>
+                <a class="stats-card">
+                    <div class="card-content">
+                        <div class="card-data">
+                            <h2>5</h2>
+                            <p>Orders</p>
+                        </div>
+                        <i class="fa fa-shopping-basket fa-6x" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-thumbnail">More Info <i class="fa fa-chevron-right" aria-hidden="true"></i></p>
+                </a>
+                <a class="stats-card">
+                    <div class="card-content">
+                        <div class="card-data">
+                            <h2>5</h2>
+                            <p>Orders</p>
+                        </div>
+                        <i class="fa fa-user-friends fa-6x" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-thumbnail">More Info <i class="fa fa-chevron-right" aria-hidden="true"></i></p>
+                </a>
+                <a class="stats-card">
+                    <div class="card-content">
+                        <div class="card-data">
+                            <h2>1</h2>
+                            <p>Low Inventory</p>
+                        </div>
+                        <i class="fa fa-chart-pie fa-6x" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-thumbnail">More Info <i class="fa fa-chevron-right" aria-hidden="true"></i></p>
+                </a>
+            </div>
+        </section>
+    
+        <section class="business-section business-section-d">
+            <div class="section-header">
+                <h1><i class="fa fa-chart-line" aria-hidden="true"></i> Web Stats</h1>
+                <div class="bar"></div>
+            </div>
+            <div class="section-body">
+                <div class="graph-card">
+                    <h1>Check out these awesome graphs!</h1>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<partial name="_BusinessAccountFooterNavPartial" />

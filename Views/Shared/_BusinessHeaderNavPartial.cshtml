@@ -1,0 +1,20 @@
+@model Administrator
+
+<header class="business-header">
+    <a href="/">
+        <div class="logo">
+            <div class="logo-letter logo-letter-a">a</div>
+            <div class="logo-letter logo-letter-n">N</div>
+            <div class="logo-letter logo-letter-e logo-letter-ne">e</div>
+            <div class="logo-letter logo-letter-r">r</div>
+            <div class="logo-letter logo-letter-m">M</div>
+            <div class="logo-letter logo-letter-e">e</div>
+        </div>
+    </a>        
+
+    <ul>
+        <li><a>@Model.User.FirstName @Model.User.LastName</a></li>
+        <li><a href="/Logout">Logout</a></li>
+        <li><a><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+    </ul>
+</header>

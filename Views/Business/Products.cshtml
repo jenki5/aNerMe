@@ -1,0 +1,70 @@
+@{
+    ViewData["Title"] = "aNerMe|Products";
+}
+
+@model Administrator
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+    <div class="products-main-body">
+        <div class="container">
+            <div class="container-header">
+                <h1>Products</h1>
+                <select name="" id="" class="input">
+                    <option value="">Sort by...</option>
+                    <option value="">Date Decending</option>
+                    <option value="">Date Ascending</option>
+                    <option value="">Title Decending</option>
+                    <option value="">Title Ascending</option>
+                </select>
+                <input type="text" class="input" id="search" placeholder="Search">
+                <a class="btn btn-primary" href="/AddProduct/">Add Product</a>
+            </div>
+            <div class="add-product-picture-div">
+                <div class="reviews" id="products-container">
+                    @* @for(int i = 0; i < Model.company.Products.Count(); i++)
+                    {
+                        <div class="review">
+                            <div class="product borderless">
+                                <div class="product-header">
+                                    <h2>@Model.company.Products[i].ProductTitle</h2>
+                                    <span><b>Price: </b>$@Model.company.Products[i].StorePrice</span>
+                                    <span><b>Inventory: </b>@Model.company.Products[i].Inventory</span>
+                                    <a class="btn btn-primary" href="/EditProduct/@Model.company.Products[i].ProductID">Edit Product</a>
+                                </div>
+                                <div class="product-desc">
+                                    <div class="img-div">
+                                        @if(@Model.company.Products[i].ProductImages.Count() > 0)
+                                        {
+                                            <img src="@Model.company.Products[i].ProductImages[0].Image.ImagePath" alt="">
+                                        }
+                                    </div>
+                                    <div class="descriptions">
+                                        <p><b>High Level Description:</b> @Model.company.Products[i].HighLevelDesc</p>
+                                        <p><b>Detailed Description:</b> @Model.company.Products[i].DetailedDesc</p>
+                                    </div>
+                                </div>
+                                <div class="categories-div">
+                                    <div class="typed-categories">
+                                        @for(int x = 0; x < Model.company.Products[i].ProductCategories.Count(); x++)
+                                        {
+                                            <div class="category">@Model.company.Products[i].ProductCategories[x].Category.CategoryName</div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    } *@
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var dbCompany = @Html.Raw(Json.Serialize(Model.company));
+</script>
+<script src="~/js/businessProductSearch.js" asp-append-version="true"></script>

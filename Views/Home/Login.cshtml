@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "aNerMe - Login";
+}
+@model User
+
+<partial name="_CustomerHeaderNavPartial" />
+
+<!-- Login Form -->
+<section class="login-a">
+    <div class="container">
+        <div class="login-card">
+            <h1>Please Login</h1>
+            <p id="error-message">@ViewBag.LoginError</p>
+            <form asp-area="" asp-controller="Home" asp-action="LoginUser" method="POST">
+                <div class="form-control">
+                    <input type="text" asp-for="@Model.Email" required>
+                    <label>Email</label>
+                </div>
+                <div class="form-control">
+                    <input type="password" asp-for="@Model.Password" required>
+                    <label>Password</label>
+                </div>
+                <input type="submit" class="btn" value="Login">
+                <p class="text">Don't have an account?
+                    <a asp-area="" asp-controller="Home" asp-action="Register">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<script src="~/js/loginAnimation.js" asp-append-version="true"></script>

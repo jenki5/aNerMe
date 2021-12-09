@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "aNerMe - Register";
+}
+
+@model User
+
+<partial name="_CustomerHeaderNavPartial" />
+<section class="login-a">
+    <div class="container">
+        <div class="login-card">
+            <h1>Register New User</h1>
+            <p id="error-message">@ViewBag.RegisterError</p>
+            <form asp-area="" asp-controller="Home" asp-action="RegisterUser" method="POST">
+                <div class="form-control">
+                    <input type="text" asp-for="@Model.Email" required>
+                    <label>Email</label>
+                </div>
+                <div class="form-control">
+                    <input type="password" asp-for="@Model.Password" required>
+                    <label>Password</label>
+                </div>
+                <div class="form-control">
+                    <input type="password" name="ConfirmPassword" required>
+                    <label>Confirm Password</label>
+                </div>
+                <button class="btn">Create Account</button>
+                <p class="text">Already have an account?
+                    <a asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script src="~/js/loginAnimation.js" asp-append-version="true"></script>

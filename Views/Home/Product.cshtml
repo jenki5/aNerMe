@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "aNerMe - Login";
+}
+@model Administrator
+
+<partial name="_CustomerHeaderNavPartial" />
+<div class="filler"></div>
+<section class="company-banner">
+    <partial name="@Model.company.Banner.BannerPartial.BannerPartialName" />
+</section>
+
+<section class="product-details">
+    <div class="container">
+        <h1>@Model.company.Products[0].ProductTitle</h1>
+        <div class="product">
+            <div class="pictures-box" id="add-product-picture-box">
+                <div class="main-picture-div" id="displayed-image">
+                    <img src="@Model.company.Products[0].ProductImages[0].Image.ImagePath" alt="">
+                </div>
+                <div class="additional-pictures" id="additional-pictures-div">
+                    @for(int i = 0; i < Model.company.Products[0].ProductImages.Count(); i++)
+                    {
+                        <div class="additional-picture">
+                            <img src="@Model.company.Products[0].ProductImages[i].Image.ImagePath" alt="">
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="product-details">
+                <h2 class="hl-desc">@Model.company.Products[0].HighLevelDesc</h2>
+                <p class="price"><b>Price: </b>$@Model.company.Products[0].StorePrice</p>
+                @for(int i = 0; i < Model.company.Products[0].Paragraphs.Count(); i++)
+                {
+                    <p class="detailed-desc">@Model.company.Products[0].Paragraphs[i]</p>
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script>
+    var dbCompany = @Html.Raw(Json.Serialize(Model.company));
+</script>
+<script src="~/js/setTextColor.js" asp-append-version="true"></script>
+<script src="~/js/loadCompanyBanner.js" asp-append-version="true"></script>

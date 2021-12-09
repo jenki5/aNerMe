@@ -1,0 +1,80 @@
+@{
+    ViewData["Title"] = "aNerMe|My Profile";
+}
+@model Administrator
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+
+        <div class="my-profile-main-body">
+            <div class="container">
+                <h1>My Profile</h1>
+                <div class="my-profile-content">
+                    <div class="image-box" id="open-modal"></div>
+                    <form asp-area="" asp-controller="Business" asp-action="SubmitEditProfile" method="post">
+                        <div class="profile-info">
+                            <span>First Name: </span>
+                            <input type="text" asp-for="@Model.User.FirstName" value="@Model.User.FirstName">
+                            <span>Last Name: </span>
+                            <input type="text" asp-for="@Model.User.LastName" value="@Model.User.LastName">
+                            <span>Display Name: </span>
+                            <input type="text" asp-for="@Model.User.DisplayName" value="@Model.User.DisplayName">
+                            <span>Email Name: </span>
+                            <input type="text" asp-for="@Model.User.Email" value="@Model.User.Email">
+                            <span>Phone Name: </span>
+                            <input type="text" asp-for="@Model.User.PhoneNumber" value="@Model.User.PhoneNumber">
+                            <span>Old Password: </span>
+                            <input type="password" asp-for="@Model.User.OldPassword" value="">
+                            <span>New Password: </span>
+                            <input type="password" asp-for="@Model.User.Password" value="">
+                            <span>Confirm New Password: </span>
+                            <input type="password" asp-for="@Model.User.ConfirmPassword" value="">
+                            <input type="hidden" asp-for="@Model.User.ProfileImageID" value="@Model.User.ProfileImageID" id="profile-image-id" >
+                        </div>
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="_BusinessPictureModal" />
+<script>
+    var companyImages = @Html.Raw(Json.Serialize(Model.company.Images));
+    document.getElementById('modal-images-grid').addEventListener('click', () => {
+        if(imageSelectArr.length > 1){
+            imageSelect(`image-${imageSelectArr[0]}`);
+        }
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/js/imagePopupModal.js" asp-append-version="true"></script>
+<script src="~/js/imageLoaderDropZone.js" asp-append-version="true"></script>
+<script>
+    const hiddenImageInput = document.getElementById('profile-image-id');
+    document.getElementById('upload-image-btn').addEventListener('click', () => {
+        if(imageSelectArr.length == 0){
+            hiddenImageInput.value = null;
+            document.querySelector('.image-box').innerHTML = "";
+        }
+        else{
+            for(var x = 0; x < companyImages.length; x++){
+                if(imageSelectArr[0] == companyImages[x].imageID){
+                    hiddenImageInput.value = companyImages[x].imageID;
+                    document.querySelector('.image-box').innerHTML = `<img src="${companyImages[x].imagePath}" id="selected-image-${companyImages[x].imageID}" alt="">`;
+                    break;
+                }
+            }
+        }
+        overlay.dispatchEvent(new Event('click'));
+    })
+
+    if(hiddenImageInput != null && hiddenImageInput != 0){
+        document.getElementById(`image-${hiddenImageInput.value}`).dispatchEvent(new Event("click"));
+        document.getElementById("upload-image-btn").dispatchEvent(new Event("click"));
+    }
+</script>

@@ -1,0 +1,332 @@
+﻿@{
+    ViewData["Title"] = "aNerMe";
+}
+
+@model IndexModel
+
+<partial name="_CustomerHeaderNavPartial" />
+<div class="filler"></div>
+<!-- Featured Companies -->
+<section class="home-a">
+    <div class="container">
+        <h1>Check out some of the local businesses near you!</h1>
+        <p>Featured businesses in your area</p>
+        <div class="featured-businesses">
+            @for(int i = 0; i < Model.FeaturedCompanies.Count(); i++)
+            {
+                <div class="featured-business">
+                    <div class="featured-business-image">
+                        <a href="Local/@Model.FeaturedCompanies[i].CompanyName/@Model.FeaturedCompanies[i].CompanyID">
+                            <img src="@Model.FeaturedCompanies[i].Banner.Image.ImagePath" alt="">
+                        </a>
+                    </div>
+                    <a href="Local/{@Model.FeaturedCompanies[i].CompanyName}/{@Model.FeaturedCompanies[i].CompanyID}">
+                        <h5>@Model.FeaturedCompanies[i].CompanyName</h5>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="home-b">
+    <div class="container">
+        <div class="featured-boxes">
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-c">
+    <div class="container">
+        <h3>Search Categories</h3>
+        <div class="categories">
+            <div class="category">
+                <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                <h5>Category</h5>
+            </div>
+            <div class="category">
+                <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                <h5>Category</h5>
+            </div>
+            <div class="category">
+                <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                <h5>Category</h5>
+            </div>
+            <div class="category">
+                <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                <h5>Category</h5>
+            </div>
+            <div class="category">
+                <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                <h5>Category</h5>
+            </div>
+            <div class="category">
+                <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                <h5>Category</h5>
+            </div>
+            <div class="category">
+                <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                <h5>Category</h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-b">
+    <div class="container">
+        <div class="featured-boxes">
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h3>Local Discounted Sales!</h3>
+                <div class="featured-items">
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                    <div class="featured">
+                        <img src="https://www.sefiles.net/images/library/small/trek-marlin-5-366761-1-12-2.jpg" alt="">
+                        <p>Product Name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

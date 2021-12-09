@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "aNerMe|Add Product";
+}
+@model Administrator
+<partial name="_BusinessHeaderNavPartial" />
+
+<div class="business-body">
+    <div class="business-side-menu">
+        <partial name="_BusinessSideMenuNavPartial" />
+    </div>
+        <div class="add-products-main-body information-page-manager">
+            <div class="container">
+                <h1>Information Page Manager: @Model.company.MenuItem.Title</h1>
+                <p>Here you can specify what is on your information page. You can add a title and a body.</p>
+                <p>It is good practice to write your content in a word or other file, then copy and paste it here.</p>
+                <div class="information-form">
+                    <form  asp-area="" asp-controller="Business" asp-action="SubmitInformationPage" method="POST">
+                        <input type="text" asp-for="@Model.company.MenuItem.InformationPage.Title">
+                        <input type="hidden" asp-for="@Model.company.MenuItem.MenuItemID">
+                        <textarea asp-for="@Model.company.MenuItem.InformationPage.Body"></textarea>
+                        <input type="submit" class="btn btn-primary" value="Submit Changes">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <partial name="_BusinessPictureModal" />
+</div>
+<script src="~/js/categoriesManager.js" asp-append-version="true"></script>
+<script>
+    var pageCategories = @Html.Raw(Json.Serialize(Model.company.MenuItem.PageCategories));
+    console.log(pageCategories);
+    for(let i = 0; i < pageCategories.length; i++){
+        const newCategory = createCategoryDiv(pageCategories[i].category.categoryName);
+        categoriesDiv.appendChild(newCategory);
+    }
+    addCategoryValues();
+</script>
